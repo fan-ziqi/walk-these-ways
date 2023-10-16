@@ -1,5 +1,5 @@
 isaacgym
-
+*.h5
 runs
 # Jaynes secret files
 .secret*

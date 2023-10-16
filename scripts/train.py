@@ -18,8 +18,6 @@ def train_a1(headless=True):
 
     config_a1(Cfg)
 
-    Cfg.env.num_envs = 4000
-
     Cfg.commands.num_lin_vel_bins = 30
     Cfg.commands.num_ang_vel_bins = 30
     Cfg.curriculum_thresholds.tracking_ang_vel = 0.7
