@@ -1,3 +1,14 @@
+# A1强化学习部署
+
+需要拉取这个库
+
+```bash
+cd walk-these-ways
+git clone https://github.com/fan-ziqi/dog_rl_deploy
+```
+
+具体部署请看`dog_rl_deploy`仓库的内容
+
 # A1 Sim-to-Real Locomotion Starter Kit
 **This is the MoB controller code of A1 adapted from [Improbable-AI/walk-these-ways](https://github.com/Improbable-AI/walk-these-ways), the performance of this controller is really amazing.**
 ## System Requirements <a name="requirements"></a>
