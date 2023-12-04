@@ -1,4 +1,6 @@
 isaacgym
+dog_rl_deploy
+
 *.h5
 runs
 # Jaynes secret files
