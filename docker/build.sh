@@ -4,4 +4,4 @@ set -u
 # SCRIPTROOT="$( cd "$(dirname "$0")" ; pwd -P )"
 # cd "${SCRIPTROOT}/.."
 
-docker build --network host -t isaacgym -f Dockerfile .
+docker build --network host -t walk-these-way -f Dockerfile .
