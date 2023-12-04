@@ -9,22 +9,6 @@ def config_a1(Cnfg: Union[Cfg, Meta]):
     _ = Cnfg.init_state
 
     _.pos = [0.0, 0.0, 0.34]  # x,y,z [m]
-    # _.default_joint_angles = {  # = target angles [rad] when action = 0.0
-    #     'FL_hip_joint': 0.1,  # [rad]
-    #     'RL_hip_joint': 0.1,  # [rad]
-    #     'FR_hip_joint': -0.1,  # [rad]
-    #     'RR_hip_joint': -0.1,  # [rad]
-
-    #     'FL_thigh_joint': 0.8,  # [rad]
-    #     'RL_thigh_joint': 1.,  # [rad]
-    #     'FR_thigh_joint': 0.8,  # [rad]
-    #     'RR_thigh_joint': 1.,  # [rad]
-
-    #     'FL_calf_joint': -1.5,  # [rad]
-    #     'RL_calf_joint': -1.5,  # [rad]
-    #     'FR_calf_joint': -1.5,  # [rad]
-    #     'RR_calf_joint': -1.5  # [rad]
-    # }
     _.default_joint_angles = { # = target angles [rad] when action = 0.0
             'FL_hip_joint': 0.0,   # [rad]
             'RL_hip_joint': 0.0,   # [rad]
@@ -85,11 +69,7 @@ def config_a1(Cnfg: Union[Cfg, Meta]):
     _ = Cnfg.env
     _.num_observations = 42
     _.observe_vel = False
-    _.num_envs = 4000
-
-    _ = Cnfg.commands
-    _.lin_vel_x = [-1.0, 1.0]
-    _.lin_vel_y = [-1.0, 1.0]
+    _.num_envs = 700
 
     _ = Cnfg.commands
     _.heading_command = False
@@ -97,8 +77,8 @@ def config_a1(Cnfg: Union[Cfg, Meta]):
     _.command_curriculum = True
     _.num_lin_vel_bins = 30
     _.num_ang_vel_bins = 30
-    _.lin_vel_x = [-0.6, 0.6]
-    _.lin_vel_y = [-0.6, 0.6]
+    _.lin_vel_x = [-1.5, 1.5]
+    _.lin_vel_y = [-1.0, 1.0]
     _.ang_vel_yaw = [-1, 1]
 
     _ = Cnfg.domain_rand
