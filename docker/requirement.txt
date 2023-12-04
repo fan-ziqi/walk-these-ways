@@ -34,3 +34,6 @@ params-proto==2.10.5
 tqdm
 gym>=0.14.0
 h5py
+
+ml-logger
+ml-dash
