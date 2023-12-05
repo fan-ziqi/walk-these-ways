@@ -69,7 +69,7 @@ def config_a1(Cnfg: Union[Cfg, Meta]):
     _ = Cnfg.env
     _.num_observations = 42
     _.observe_vel = False
-    _.num_envs = 700
+    _.num_envs = 8192
 
     _ = Cnfg.commands
     _.heading_command = False
@@ -100,3 +100,10 @@ def config_a1(Cnfg: Union[Cfg, Meta]):
     _.randomize_Kd_factor = False
     _.Kd_factor_range = [0.5, 1.5]
     _.rand_interval_s = 6
+    
+    _ = Cnfg.viewer
+    _.pos = [10, 0, 2]  # [m]
+    _.lookat = [10., 5, 3.]  # [m]
+    
+    _ = Cnfg.sim.physx
+    _.max_gpu_contact_pairs = 2 ** 24

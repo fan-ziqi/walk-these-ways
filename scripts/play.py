@@ -97,7 +97,7 @@ def play_a1(headless=True, x_vel_cmds=[-1.0, -0.5, 0.5, 1.0], y_vel_cmds=[-1.0, 
     import glob
     import os
 
-    label = "gait-conditioned-agility/2023-10-16/train"
+    label = "gait-conditioned-agility/2023-12-04/train"
 
     env, policy = load_env(label, headless=headless)
     print(env.p_gains)

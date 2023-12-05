@@ -14,6 +14,8 @@ from a1_gym.envs.a1.velocity_tracking import VelocityTrackingEasyEnv
 
 from tqdm import tqdm
 
+import sys, getopt #读取参数
+
 import keyboard
 import threading
 import sys, select, termios, tty
@@ -102,7 +104,24 @@ x_vel_cmd = 0
 y_vel_cmd = 0
 yaw_vel_cmd = 0
 
-def main():
+def main(argv):
+    gait_name = "trotting"
+    date = "2023-12-04"
+    try:
+        opts, args = getopt.getopt(argv,"-h-g:-d:",["help","gait=","date="])
+    except getopt.GetoptError:
+        print("[*] play_cmd.py --gait=<pronking,trotting,bounding,pacing> --date=<202x-xx-xx>")
+    for opt_name,opt_value in opts:
+        if opt_name in ('-h','--help'):
+            print("[*] play_cmd.py --gait=<pronking,trotting,bounding,pacing> --date=<202x-xx-xx>")
+            exit()
+        if opt_name in ('-g','--gait'):
+            gait_name = opt_value
+            print("[*] Set gait to: ", gait_name)
+        if opt_name in ('-d','--date'):
+            date = opt_value
+            print("[*] Set date to: ", date)
+    
     global x_vel_cmd, y_vel_cmd, yaw_vel_cmd
     # to see the environment rendering, set headless=False
     headless = False
@@ -114,7 +133,7 @@ def main():
     import glob
     import os
 
-    label = "gait-conditioned-agility/2023-10-16/train"
+    label = "gait-conditioned-agility/" + date + "/train"
 
     env, policy = load_env(label, headless=headless)
     # print(env.p_gains)
@@ -129,7 +148,7 @@ def main():
              "trotting": [0.5, 0, 0],
              "bounding": [0, 0.5, 0],
              "pacing": [0, 0, 0.5]}
-        gait = torch.tensor(gaits["trotting"])
+        gait = torch.tensor(gaits[gait_name])
         footswing_height_cmd = 0.12
         pitch_cmd = 0.0
         roll_cmd = 0.0
@@ -202,5 +221,5 @@ def keyboard_listener():
 if __name__ == '__main__':
     keyboard_thread = threading.Thread(target=keyboard_listener)
     keyboard_thread.start()  # 启动键盘事件监听线程
-    main()
+    main(sys.argv[1:])
 
