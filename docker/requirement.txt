@@ -37,3 +37,4 @@ h5py
 
 ml-logger
 ml-dash
+keyboard

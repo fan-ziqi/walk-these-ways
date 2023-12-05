@@ -37,7 +37,9 @@ RUN apt-get update \
  git \
  libegl1 \
  git-lfs \
- libsm6
+ libsm6 \
+ xauth \
+ x11-apps
 
 # change pip mirror
 RUN python -m pip install --upgrade pip \
